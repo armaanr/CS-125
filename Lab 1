@@ -1,0 +1,239 @@
+//
+//  main.cpp
+//  CS 125
+//
+//  Created by Armaan Rai on 1/25/14.
+//  Copyright (c) 2014 Armaan Rai. All rights reserved.
+//
+
+#include <iostream>
+#include <string>
+#include <sstream>
+using namespace std;
+
+//Calculates Volume
+int Volume(int l, int b, int h)
+{
+    int vol = l*b*h;
+    return vol;
+}
+
+//Calculates Surface Area
+int Area(int l, int b, int h)
+{
+    int area = 2*l*b + 2*l*h + 2*b*h;
+    return area;
+}
+
+//Calculates the Factorial
+int Factorial(int n)
+{
+    int i;
+    int fact = n;
+    
+    for(i=n-1;i>0;i--)
+    {
+        fact= fact*(i);
+    }
+    
+    return fact;
+}
+
+//Checks whether the number is Odd or Even
+int OddCheck(int n)
+{
+    int result;
+
+    if(n==1)
+        result=0;
+    else if(n==2)
+        result=1;
+    else
+    {
+        if(n%2!=0)
+        {
+            result = 0;
+        }
+        else
+        {
+            result = 1;
+        }
+    
+    }
+    
+    return result;
+    
+}
+
+int raise(int n,int m)
+{
+    int num=1;
+    
+    for(int i=0;i<n;i++)
+    {
+        num=num*m;
+    }
+    
+    return num ;
+}
+
+
+/* Inputs the length, breadth and height, then gives out the Volume and S.Area */
+void function1()
+{
+    int l,b,h;
+    int vol, area;
+    
+    cout<<"Enter Length\n";
+    cin>>l;
+    cout<<"Enter Breadth\n";
+    cin>>b;
+    cout<<"Enter Height\n";
+    cin>>h;
+    
+    vol = Volume(l,b,h);
+    area = Area(l,b,h);
+    
+    cout<<"The Volume is "<<vol<<" and the Surface Area is "<<area;
+    
+};
+
+/* Inputs a Positive Number, then tells whether it is odd or even */
+void function2()
+{
+    int n;
+    int result;
+    int i =0;
+    
+    do{
+    cout<<"Enter a Positive Number\n";
+    cin>>n;
+    
+    if(n>=0)
+        break;
+    }
+    while(i==0);
+    
+    
+    result= OddCheck(n);
+    
+    if (result==0) {
+        cout<<"The number "<<n<<" is Odd\n\n";
+    }
+    else
+     cout<<"The number "<<n<<" is Even\n\n";
+    
+    
+};
+
+/* Inputs a Positive Number, then calculates the factorial */
+void function3()
+{
+    int n;
+    int result;
+    int i =0;
+    
+    do{
+        cout<<"Enter a Positive Number\n";
+        cin>>n;
+        
+        if(n>=0)
+            break;
+    }
+    while(i==0);
+    
+    
+    result= Factorial(n);
+    
+    
+    cout<<"The factorial of number "<<n<<" is "<<result<<"\n\n";
+
+    
+};
+
+void function4()
+{
+    int n,m;
+    int result;
+    int i =0;
+    
+    do{
+        cout<<"Enter a Positive Number X\n";
+        cin>>n;
+        
+        if(n>=0)
+            break;
+    }
+    while(i==0);
+    
+    do{
+        cout<<"Enter a Positive Number n, we multiply X n times\n";
+        cin>>m;
+        
+        if(m>=0)
+            break;
+    }
+    while(i==0);
+    
+    
+    result= raise(n,m);
+    
+    
+    cout<<n<<" raised to the power of "<<m<<" is "<<result<<"\n\n";
+};
+
+
+int main(int argc, const char * argv[])
+{
+    int input = 0 ;
+    
+        
+        
+    do {
+        cout << "Menu\n";
+        cout <<"1. Calculates the volume and surface area\n";
+        cout <<"2. Checks whether a positive number is odd or even\n";
+        cout <<"3. Calculates the factorial of a positive number\n";
+        cout <<"4. Multiplies a number X , n times\n";
+        cout <<"5. Quit\n\n";
+
+        cout <<"Enter the number of your option\n";
+        cin >>input;
+        
+        if(input<=0 || input>5)
+        {
+            cout<<"Please choose a valid option\n";
+            continue;
+        }
+        
+        if(input!=5)
+        {
+            switch (input)
+                {
+                    case 1:
+                        function1();
+                        continue;
+                    case 2:
+                        function2();
+                        continue;
+                    case 3:
+                        function3();
+                        continue;
+                    case 4:
+                        function4();
+                        continue;
+                
+                }
+        }
+        
+                
+    } while (input!=5);
+       
+    
+    
+    
+    
+       
+    return 0;
+}
+
